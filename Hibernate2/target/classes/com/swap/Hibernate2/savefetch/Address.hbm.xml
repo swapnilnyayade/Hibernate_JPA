@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+
+<hibernate-mapping package="com.swap.Hibernate2.savefetch">
+	<class name="com.swap.Hibernate2.savefetch.Address" table="address">
+		<id name="addressId" column="address_id" type="int">
+			<generator class="increment"></generator>
+		</id>
+		
+		<property name="street" column="street" type="string" length="100" not-null="true"></property>
+		<property name="open" column="open" not-null="true"></property>
+		<property name="city" column="city" type="string" length="50" not-null="true"></property>
+		<property name="date" column="date" type="date" length="10" not-null="true"></property>
+		<property name="image" column="image" type="java.sql.Blob" not-null="true"></property>
+		
+		<!-- <property name="image" column="image" type="binary" not-null="true"></property>
+		 	 gives data truncation error , need to set image data type to LONGBLOB in DB manually	-->
+	</class>
+
+</hibernate-mapping>

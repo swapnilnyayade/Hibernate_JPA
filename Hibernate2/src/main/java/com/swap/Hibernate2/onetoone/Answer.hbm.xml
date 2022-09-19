@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping
+	package="com.swap.Hibernate2.onetoone">
+	<class name="com.swap.Hibernate2.onetoone.Answer" table="answer">
+		<id name="answerId" column="answer_id">
+			<generator class="foreign">
+				<param name="property">que</param>
+			</generator>
+		</id>
+
+		<property name="anser" column="anser" type="string"></property>
+		<one-to-one name="que"></one-to-one>  
+
+
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+
+<hibernate-mapping package="com.swap.Hibernate2.embeddable">
+	<class name="com.swap.Hibernate2.embeddable.Teacher" table="teacher">
+		<id name="id" column="teacher_id">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="tname" column="teacher_name" type="string"></property>
+		<property name="mob" column="teacher_address"></property>
+		<component name="crs" class="com.swap.Hibernate2.embeddable.Course">
+         <property name="name" column="course_name" />
+         
+         <property name="dur" column="course_duration" />
+      	</component>
+		
+	</class>
+
+</hibernate-mapping>

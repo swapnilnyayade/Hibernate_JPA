@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+	<class name="com.swap.Hibernate2.onetomany.User" table="user">
+		<id name="userId" column="user_id">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="name" column="name" type="string"></property>
+		<list name="acc" table="account" cascade="all" lazy="false">
+			<key column="usr_id"></key>
+			<index column="type"></index>  
+			<one-to-many class="com.swap.Hibernate2.onetomany.Account" />
+		</list> 
+
+	</class>
+	
+	<class name="com.swap.Hibernate2.onetomany.Account" table="account">
+		<id name="accId" column="acc_id">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="accName" column="acc_name" type="string"></property>
+		<!-- <many-to-one name="user" column="usr_id" cascade="all" ></many-to-one>  -->
+	</class>
+
+</hibernate-mapping>

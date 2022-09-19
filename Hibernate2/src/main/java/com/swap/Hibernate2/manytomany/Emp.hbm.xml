@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>    
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+	<class name="com.swap.Hibernate2.manytomany.Emp" table="employee">
+		<id name="empId" column="emp_id">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="name"></property>
+		<set name="pro" table="emp_pro" cascade="all">
+			<key column="emp_id"></key>
+			<many-to-many class="com.swap.Hibernate2.manytomany.Project" column="pro_id" />
+		</set> 
+
+	</class>
+	
+</hibernate-mapping>        
